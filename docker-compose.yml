@@ -1,0 +1,10 @@
+services:
+  rtl_tcp:
+    image: n9sla/rtl-tcp:latest
+    container_name: rtl_tcp
+    restart: unless-stopped
+    #Change path below to match your device
+    devices:
+      - "/dev/bus/usb/001/002:/dev/bus/usb/001/002"
+    ports:
+      - "1234:1234"
