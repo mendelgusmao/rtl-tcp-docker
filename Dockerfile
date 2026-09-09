@@ -9,9 +9,11 @@ RUN apk add --no-cache \
     cmake \
     libusb-dev
 
+ENV RTLSDR_REPO=https://github.com/rtlsdrblog/rtl-sdr-blog
+
 # Build rtl-sdr from source
 WORKDIR /tmp
-RUN git clone https://gitea.osmocom.org/sdr/rtl-sdr.git && \
+RUN git clone $RTLSDR_REPO && \
     mkdir -p rtl-sdr/build && \
     cd rtl-sdr/build && \
     cmake -DDETACH_KERNEL_DRIVER=ON .. && \
